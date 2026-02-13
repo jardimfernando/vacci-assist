@@ -9,7 +9,18 @@ except ImportError:
     subprocess.check_call([sys.executable, "-m", "pip", "install", "langchain", "langchain-openai", "langchain-community", "faiss-cpu", "pypdf", "fpdf"])
     st.rerun()
 
-import streamlit as st
+import streamlit as st  # Importamos o streamlit primeiro para o erro sumir
+import os
+import subprocess
+import sys
+
+# Força a instalação das bibliotecas caso o Streamlit falhe (Plano de Segurança)
+try:
+    from langchain.chains import create_retrieval_chain
+except ImportError:
+    subprocess.check_call([sys.executable, "-m", "pip", "install", "langchain", "langchain-openai", "langchain-community", "faiss-cpu", "pypdf", "fpdf"])
+    st.rerun()
+
 import tempfile
 from datetime import date
 from fpdf import FPDF
@@ -21,6 +32,8 @@ from langchain.chains import create_retrieval_chain
 from langchain.chains.combine_documents import create_stuff_documents_chain
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.messages import HumanMessage, AIMessage
+
+# --- O RESTO DO SEU CÓDIGO (st.set_page_config, funções, etc.) CONTINUA ABAIXO ---
 
 # --- O RESTO DO SEU CÓDIGO CONTINUA IGUAL ABAIXO ---
 # (Certifique-se de manter as funções que já criamos: processar_pdf, mostrar_calculadora, etc.)
