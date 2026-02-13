@@ -7,8 +7,8 @@ from langchain_openai import ChatOpenAI, OpenAIEmbeddings
 from langchain_community.vectorstores import FAISS
 from langchain_community.document_loaders import PyPDFLoader
 from langchain_text_splitters import RecursiveCharacterTextSplitter
-from langchain.chains import create_retrieval_chain
 from langchain.chains.combine_documents import create_stuff_documents_chain
+from langchain.chains import create_retrieval_chain
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.messages import HumanMessage, AIMessage
 
@@ -238,4 +238,5 @@ elif menu == "👤 Sobre o Autor":
     Criador do método **A Jornada** e autor do livro sobre Comportamento Intencional,
     tem como missão capacitar profissionais de saúde para oferecerem serviços de excelência.
     """)
+
     st.info("Entre em contato: contato@vacci-assist.com.br")
